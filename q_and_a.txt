@@ -1,0 +1,315 @@
+
+HTML
+
+    What are HTML elements?
+they allow you to manipulate on-screen items(text, images, metadata, etc) by tags, classes and ids
+    What are HTML element attributes? What are some examples of HTML attributes and what do they do?
+they are configurable traits of elements...like color, font size, padding etc
+    In an HTML element, what does the id attribute do? The class attribute?
+id attribute identifies one thing, classes categorize multiple
+    What is an inline element? A block element? What are some examples of each?
+-inline element doesnt require multiple lines or a block. ex are hyperlink, image
+-block elements take up aspace and can be multiple lines....body, paragraph, text, header
+-block requires space around it and ex are header, paragraph, title
+
+    How do semantic HTML elements help developers markup content?
+-ease of usage amd intended usage
+    Usage of specific elements:
+
+        How are div elements used? How do they differ from elements like article or p?
+divs are used to containerize elements on a page....its a generic block element
+        How are span elements used? How do they differ from elements like a or b?
+When your content isn’t a paragraph or table or hyperlink (…etc.), 
+you can use div or span....span is a generic inline ele
+
+    Creating forms in HTML:
+
+        In form elements, what is the method attribute used to specify? The action attribute?
+type, name, value, id?
+-method is get request or post request for server side processing
+-action is submitting data to url...inclused resource...its where the form submits its values to the specificed route/resource
+
+        List the various types of input tags. How do you set an input tag’s type?
+Text, Checkbox, Radio (radio button)
+
+        For an input tag, what does the name attribute do?
+sets fieldname
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CSS
+
+    In CSS, what is a selector? A property? A value?
+-a selector attaches itself to elements via class, id or tag....properties:val
+
+    What is the difference between combining selectors and descendent selectors?
+combining sel= p.urgent {color:red;} <---specifying all paragraphs...dot notation
+
+descended sel="do this inside a paragraph to any depth"
+descendent sel= p b{color:red;} <---specifying paragraphs that have bold 
+text in them..will search and find <b> in <p>
+
+    For block elements, what attributes are applied to all four sides?
+padding, margin, 
+
+    What is the Order of Precedence in CSS?
+last one wins
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Flask and Jinja2
+
+
+.get() is a method from the dictionary class.  
+It allows you to safely access the value a dictionary holds 
+for a particular key.  Both request.args  (in the case of GET 
+requests) and request.form (in the case of POST requests) are 
+dictionaries, so either can use .get() the access values.  
+Remember that the HTTP GET method and the dictionary .get() 
+just happen to have the same name, but the word "get" means 
+very different things in those contexts. -adam
+
+
+    What is the request object in Flask? What can you use it for?
+its a dictionary.
+its in the app route decorator function as request.form.get() or request.args.get() and 
+it accesses form data in the specified route....and depending on the method either gets that info and submits elsewhere or places it on same page
+
+    In Flask, how do you access form values for a POST request? How about for a GET request?
+request.form.get() in the app route decorator function AND in app.routes parameters AND in the <form> tag of the html in the html file specify its POST
+
+request.args.get() in the app route decorator function and the fact that its a GET method(no side effects) is default
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    What is Jinja? What does the function render_template do?
+jinja is a way to put js in htmlthe render-template is a function of flask and allows 
+us to put the template html url in the return of the app decorator function in the server file
+INSTEAD of raw html in the return
+
+    Jinja syntax to know
+
+        For-loops
+{% for name in names %}
+<li>{{ repeating var }}</li>
+{% endfor %}
+
+
+        If-statements
+<div><p>
+{% if name :%}
+
+//might have a for loop innit
+
+{% end if %}
+</p>
+</div>
+
+
+        Showing text with Jinja
+via variable in js's curly braces 
+<p> hey there, {{ name }}</p>
+
+        Setting HTML attributes using Jinja
+template inheritance?? wait for adams reply
+
+        Template inheritance (using a base.html to create consistency)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+How the Web Works
+
+    When you type a URL into a web browser, what happens?
+-the browser sends a request to the server to retrieve the page....in a get request (public)
+-server responds...interacts with db, 
+
+        Be able to explain this in your own words, hitting each main concept from the lecture.
+
+    What are the five main components of a URL?
+-protocol (http, https)
+-host name
+-protocol
+-url/resouce
+-query
+
+    What is the difference between a GET request and a POST request?
+    What is POST method?
+secure retrieval of form data and sent to the db...data retrieval 
+
+    What is GET method?
+insecure and is just seen in the address bar by anyone...data retrieval 
+GET: passes arguments via the URL
+Gives you a warning if you reload: “Confirm Form Resubmission”
+Used for requests with side effects (e.g. saving data to a database)
+
+
+
+
+
+
+
+
+
+
+
+
+
+Cookies and Sessions
+
+    What is a cookie? What is a session? How are the two different?
+
+
+
+
+
+
+
+
+
+
+
+
+
+APIs and Requests Library
+
+    What is an API? What does API stand for?
+set of functions to get things done    
+application prog. interface
+    What are some examples of web-based APIs?
+-google maps
+    What is an API endpoint?
+-resources!
+-routes!
+    What are the core tenets of REST in the context of APIs?
+-set of rules in industry api making
+-req or response will include all data
+    How can you keep your API access tokens out of git? What should you do if you accidentally add your API tokens to git?
+secret.sh in .gitignore
+make repo private or delete
+pray
+    Why is it bad to push your API tokens to git?
+API key VS API Token:
+The main distinction between these two is: API keys 
+identify the calling project — the application or site — 
+making the call to an API. 
+
+Authentication tokens identify a user — 
+the person — that is using the app or site.
+
+
+
+
+
+
+
+
+
+
+
+
+
+Testing
+
+    What are doctests? How do you create and run them?
+tests you use to test script functionality piece by piece
+
+still have to review slower lecture once uploaded
+
+    What is the difference between a unit test and an integration test?
+unit test is a bundle of tests via testing class in unittest module 
+
+integration test is testing a washer machine for bedding or delicates...whether
+compenents work together
